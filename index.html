@@ -148,6 +148,115 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-SQL注入" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/03/21/SQL%E6%B3%A8%E5%85%A5/" class="article-date">
+  	<time datetime="2022-03-21T02:19:18.382Z" itemprop="datePublished">2022-03-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/21/SQL%E6%B3%A8%E5%85%A5/">
+        sql注入
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="clash-汉化"><a href="#clash-汉化" class="headerlink" title="clash 汉化"></a>clash 汉化</h4><h4 id="下载everything（window用于文件搜索）"><a href="#下载everything（window用于文件搜索）" class="headerlink" title="下载everything（window用于文件搜索）"></a>下载everything（window用于文件搜索）</h4><h4 id="下载Java"><a href="#下载Java" class="headerlink" title="下载Java"></a>下载Java</h4><ol>
+<li>以管理员身份运行安装，配置环境变量：</li>
+<li>新建系统变量：<br>更改系统变量path为：%JAVA_HOME%\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0<br>添加系统变量：<ul>
+<li> “JAVA_HOME_8”—-&gt; “C:\Program Files\Java\jdk1.8.0_171”</li>
+<li> “JAVA_HOME_11”—-&gt; “C:\Program Files\Java\jdk-11.0.13”</li>
+<li> “JAVA_HOME_15”—-&gt; “C:\Program Files\Java\jdk-15.0.2”<h4 id="switchOmega中新建情景模式"><a href="#switchOmega中新建情景模式" class="headerlink" title="switchOmega中新建情景模式"></a>switchOmega中新建情景模式</h4></li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>代理协议</th>
+<th>代理服务器</th>
+<th>代理端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>http</td>
+<td>127.0.0.1</td>
+<td>8080</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="proxy-模块"><a href="#proxy-模块" class="headerlink" title="proxy 模块"></a>proxy 模块</h4><blockquote>
+<p>intercept模块：显示修改http请求及应答，并可以发送到其他模块</p>
+<blockquote>
+<p>Forward:发送数据<br>drop:丢弃请求包<br>intercept is off/on:拦截开关<br>action:右键功能</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>http history模块：记录经过代理服务器的所有请求</p>
+</blockquote>
+<blockquote>
+<p>options模块：</p>
+<blockquote>
+<p>proxy listeners:默认情况下burp监听127.0.0.1：8080<br>导入安全证书<br>intercept Client Request :配置拦截规则<br>Intercept Server Responses:<br>    1.基于服务端配置拦截规则，设置拦截的匹配规则<br>    2.Intercept request based on the following rules 为选中状态时，burpsuite会匹配响应包<br>Intercept Server Responses:<br>    1.基于服务端配置拦截规则，设置拦截的匹配规则<br>    2.Intercept request based on the following rules 为选中状态时，burpsuite会匹配响应包</p>
+</blockquote>
+</blockquote>
+<hr>
+<h1 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h1><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>  union类型<br>  基于错误显示<br>  布尔类型<br>  基于时间<br>  其他类型</p>
+<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><ul>
+<li>查询语句一 union 查询语句二</li>
+<li>（注：1.多条查询语句的查询列数是一致的 2.默认去重 3.页面必须要有显示位）</li>
+<li>#：如果用户可控的传值位置不在末尾，#之后的语句会被注释掉</li>
+<li>常用函数：</li>
+<li>concat(),concat_ws():连接多个字符串 ， group_concat():将多行结果连成一组</li>
+<li>information schema库：schemata,tables,columns</li>
+</ul>
+<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><p>floor报错注入：<br>1.floor0西数的作用是返回小于等于该值的最大整数，只返回arg1整数部分 ，小数部分舍弃。<br>2.条件：mysql 5.0及以上版本<br>3.标准Payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and (select 1 from (select count(*),concat(user),floor(rand(0)*2))x from information schema.tables group by x)y)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-mysql" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
