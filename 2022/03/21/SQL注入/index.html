@@ -17,7 +17,7 @@
 <meta property="og:description" content="clash 汉化下载everything（window用于文件搜索）下载Java 以管理员身份运行安装，配置环境变量： 新建系统变量：更改系统变量path为：%JAVA_HOME%\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-21T02:19:18.382Z">
-<meta property="article:modified_time" content="2022-03-28T09:40:18.817Z">
+<meta property="article:modified_time" content="2022-04-11T01:40:52.082Z">
 <meta property="article:author" content="GXY BLOG">
 <meta name="twitter:card" content="summary">
   
@@ -254,7 +254,66 @@
 <a target="_blank" rel="noopener" href="https://www.habaijian.com/">ascii表</a></li>
 </ol>
 <p>布尔盲注：<br>获取列名：<a target="_blank" rel="noopener" href="http://45.32.113.109:40198/Less-8/?id=1&#39;">http://45.32.113.109:40198/Less-8/?id=1&#39;</a> and ascii(substr((select distinct column_name from information_schema.columns where table_name=’users’ and table_schema=database()limit 0,1),1,1))=105–+<br>时间盲注：<a target="_blank" rel="noopener" href="http://45.32.113.109:50145/Less-9/?id=1&#39;and">http://45.32.113.109:50145/Less-9/?id=1&#39;and</a> if(length(database())&gt;5,sleep(5),1)–+</p>
-<h2 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h2><h2 id="http头注入"><a href="#http头注入" class="headerlink" title="http头注入"></a>http头注入</h2><h2 id="二次编码注入"><a href="#二次编码注入" class="headerlink" title="二次编码注入"></a>二次编码注入</h2><h2 id="base64注入"><a href="#base64注入" class="headerlink" title="base64注入"></a>base64注入</h2><h2 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h2><h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2>
+<h2 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h2><h2 id="http头注入"><a href="#http头注入" class="headerlink" title="http头注入"></a>http头注入</h2><h2 id="二次编码注入"><a href="#二次编码注入" class="headerlink" title="二次编码注入"></a>二次编码注入</h2><h2 id="base64注入"><a href="#base64注入" class="headerlink" title="base64注入"></a>base64注入</h2><h2 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h2><h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2><h2 id="SQLmap"><a href="#SQLmap" class="headerlink" title="SQLmap"></a>SQLmap</h2><h3 id="常见参数"><a href="#常见参数" class="headerlink" title="常见参数"></a>常见参数</h3><p>1.-v 如：SQLmap -u -v 3</p>
+<h2 id="MSSQL"><a href="#MSSQL" class="headerlink" title="MSSQL"></a>MSSQL</h2><h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><ul>
+<li>创建数据库：CREATE DATABASE Idbnamel</li>
+<li>删除数据库：drop database [dbname]</li>
+<li>创建新表：create table Itablename (name char(10)Fage tinyint, sex int)</li>
+<li>删除新表：drop table Itablename]</li>
+<li>向表中插入内容：insert into [tablenamej(field1,field2 ) values(value 1,valuez)</li>
+<li>删除内容：delete from [tablename] where 范围</li>
+<li>更新内容：update Itablenamel set field1 =value1 where 范围</li>
+<li>查找: select * from [tablename] where field1=” ichungiu”</li>
+</ul>
+<h3 id="服务器固定角色"><a href="#服务器固定角色" class="headerlink" title="服务器固定角色"></a>服务器固定角色</h3><table>
+<thead>
+<tr>
+<th>角色</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sysadmin</td>
+<td>执行任何动作</td>
+</tr>
+<tr>
+<td>serveradmin</td>
+<td>配置服务器设置</td>
+</tr>
+<tr>
+<td>setupadmin</td>
+<td>安装复制和管理扩展过程</td>
+</tr>
+<tr>
+<td>securityadmin</td>
+<td>管理登录和create database的权限及阅读审计</td>
+</tr>
+<tr>
+<td>processadmin</td>
+<td>管理SQLserver进程</td>
+</tr>
+<tr>
+<td>dbcreator</td>
+<td>创建和修改数据库</td>
+</tr>
+<tr>
+<td>diskadmin</td>
+<td>管理磁盘文件</td>
+</tr>
+</tbody></table>
+<ul>
+<li>添加删除固定服务器成员的函数<br>sp_addsrvrolemember<br>sp_dropsrvrolemember</li>
+</ul>
+<h2 id="常见的过waf技巧"><a href="#常见的过waf技巧" class="headerlink" title="常见的过waf技巧"></a>常见的过waf技巧</h2><h3 id="大小写绕过"><a href="#大小写绕过" class="headerlink" title="大小写绕过"></a>大小写绕过</h3><p>   比如拦截了union，可以使用UNioN</p>
+<h3 id="替换关键字"><a href="#替换关键字" class="headerlink" title="替换关键字"></a>替换关键字</h3><ol>
+<li>关键字双写(利用waf的不完整，只过滤一次字符串)<br>比如select：SeleselectECT</li>
+<li>同价词替换（waf主要是针对一些特殊的关键词进行检测）<br>比如:<br>and可以用&amp;&amp;替换，<br>or可以用||替换，<br>=可以用&lt;&gt;替换，<br>空格可以用%20%09%0a%0b%0c%0d%a0/**/替换（MySQL中%0a是换行）</li>
+<li>编码绕过（利用浏览器上的进制转换或者语言编码规则来绕过waf）</li>
+</ol>
+<ul>
+<li>URL编码</li>
+</ul>
+
       
     </div>
     

