@@ -17,7 +17,6 @@
 <meta property="og:description" content="xssxss全称：cross site scripting，跨站脚本攻击，是web程序中常见的漏洞。攻击者在网页中嵌入客户端脚本（如：javaScript），当用户浏览网页时，脚本就会在用户的浏览器上执行，从而达到攻击者的目的，比如获取用户的cookie，导航到恶意网站，携带木马等。 xss漏洞分类 反射型xss：存储在URL，插入点为html 存储型xss：存储在后端数据库，插入点为html d">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s1.328888.xyz/2022/04/24/8Lgsd.png">
-<meta property="og:image" content="javascript:alert(">
 <meta property="og:image" content="https://s1.328888.xyz/2022/04/20/ral4Q.png">
 <meta property="og:image" content="https://s1.328888.xyz/2022/04/20/ra5N4.png">
 <meta property="og:image" content="https://s1.328888.xyz/2022/04/20/razfB.png">
@@ -33,7 +32,7 @@
 <meta property="og:image" content="https://s1.328888.xyz/2022/04/20/rantP.png">
 <meta property="og:image" content="https://s1.328888.xyz/2022/04/20/ra1am.png">
 <meta property="article:published_time" content="2022-04-20T07:02:49.235Z">
-<meta property="article:modified_time" content="2022-04-24T15:37:04.587Z">
+<meta property="article:modified_time" content="2022-04-24T15:40:46.954Z">
 <meta property="article:author" content="GXY BLOG">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s1.328888.xyz/2022/04/24/8Lgsd.png">
@@ -193,12 +192,12 @@
 <h3 id="反射型XSS："><a href="#反射型XSS：" class="headerlink" title="反射型XSS："></a>反射型XSS：</h3><p>通过给别人发送带有恶意脚本代码参数的url，当url地址被打开时，特有的恶意代码参数别html解析，执行。<br>特点是非持久化，也不存入网站服务器中。<br>缺点：<br>1.1 必须用户点击带有特定恶意脚本代码参数的链接才能执行<br>1.2 恶意代码存放在url中，只有用户在点击恶意链接的时候才会执行恶意代码，所有它的隐蔽性很差，可以直观的看到访问了怎样的站点，当然不了解的，也不容易看出来。</p>
 <h3 id="存储型XSS："><a href="#存储型XSS：" class="headerlink" title="存储型XSS："></a>存储型XSS：</h3><p>恶意语句会进入到目标服务器中，包括但不限于数据库里面，存写进去的方式，比如网站的留言板，个人信息，文章发布等地方，如果这些地方未对传入的数据细致的过滤，就会有储存型XSS的产生。<br>其特点在于，持久性较长，危害性较大。</p>
 <h2 id="xss的变形与绕过"><a href="#xss的变形与绕过" class="headerlink" title="xss的变形与绕过"></a>xss的变形与绕过</h2><ol>
-<li>没有过滤机制：<script>alert(/xss/)</script></li>
+<li>没有过滤机制：<code>&lt;script&gt;alert(/xss/)&lt;/script&gt;</code></li>
 <li>伪协议方式构造xss</li>
 </ol>
 <ul>
-<li>href：<a href="javascript:alert(/xss)">touch me!</a><br>(通过href标签创建超链接，并通过伪协议进行xss攻击，所以点击了超链接就会进行弹窗操作)</li>
-<li>imag：<img src="javascript:alert('xss')">(在ie6)</li>
+<li>href：<code>&lt;a href=&quot;javascript:alert(/xss)&quot;&gt;touch me!&lt;/a&gt;</code><br>(通过href标签创建超链接，并通过伪协议进行xss攻击，所以点击了超链接就会进行弹窗操作)</li>
+<li>imag：<code>&lt;img src=&quot;javascript:alert(&#39;xss&#39;)&quot;&gt;</code>(在ie6)</li>
 </ul>
 <ol start="3">
 <li>事件利用：利用HTML中某些动作事件进行响应，通过事件触发js函数，再触发xss<br>如：<ul>
